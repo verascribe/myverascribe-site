@@ -1,0 +1,589 @@
+---
+layout: default
+title: Home
+---
+
+<!-- Hero Section: Apple-style High Impact Scroll Effect -->
+<section id="hero-section" class="relative h-[200vh] bg-black">
+  <div class="hero-sticky-container">
+    <!-- Hero Image (Fully visible initially) -->
+    <div
+      id="hero-image"
+      class="hero-image"
+      data-hero-url="{{ '/assets/images/index/hero_2.png' | relative_url }}"
+    ></div>
+
+    <div
+      id="hero-caption"
+      class="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/90 via-black/50 to-transparent"
+    >
+      <div class="px-6 md:px-12 pb-10 pt-20">
+        <div class="text-left">
+          <div
+            class="text-4xl md:text-5xl font-bold tracking-tight text-off-white"
+          >
+            Verascribe Guardian
+          </div>
+          <div
+            class="mt-2 text-lg md:text-xl font-normal leading-snug text-gray-200/90 md:whitespace-nowrap"
+          >
+            A secure evidence system for court-ready parenting logs.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scrolling Overlay -->
+    <div id="hero-overlay" class="hero-overlay opacity-0">
+      <div class="max-w-5xl mx-auto px-4 text-center">
+        <h1
+          class="text-6xl md:text-8xl font-bold tracking-tight mb-8 gradient-text"
+        >
+          The New Era of Documentation.
+        </h1>
+        <p
+          class="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed"
+        >
+          Replace chaotic notes with a professional, unified system built inside
+          the Google Sheets you already use.
+        </p>
+        <p
+          class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed mt-6"
+        >
+          Generate court-ready reports, track every expense, and secure your
+          history in your own private cloud.
+        </p>
+        <div class="flex flex-col items-center gap-6">
+          <button
+            class="cursor-pointer bg-brand-purple text-white hover:bg-brand-purple/90 px-10 py-4 rounded-full font-semibold text-lg transition-all transform hover:scale-105 active:scale-95 shadow-xl"
+            onclick="
+              document
+                .getElementById('workspace')
+                .scrollIntoView({ behavior: 'smooth' })
+            "
+          >
+            Explore Features
+          </button>
+          <div
+            class="animate-bounce mt-8 cursor-pointer"
+            onclick="
+              document
+                .getElementById('workspace')
+                .scrollIntoView({ behavior: 'smooth' })
+            "
+          >
+            <i data-lucide="chevron-down" class="w-8 h-8 text-gray-500"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 1: The Centralized Workspace (Scrollytelling Sidebar) -->
+<section id="workspace" class="py-32 bg-black overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="grid lg:grid-cols-2 gap-20 items-center">
+      <div class="reveal">
+        <h2
+          class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-teal mb-4"
+        >
+          The Centralized Workspace
+        </h2>
+        <h3 class="text-4xl md:text-5xl font-bold mb-8 leading-tight">
+          Everything you need.<br />All in one place.
+        </h3>
+        <p class="text-lg text-gray-400 mb-10 leading-relaxed">
+          Stop jumping between apps, spreadsheets, and folders. Our Single
+          Sidebar Workspace allows you to log events, generate reports, and
+          manage your schedule without ever leaving your workbook.
+        </p>
+        <div class="space-y-8">
+          <div class="flex gap-4">
+            <div
+              class="flex-shrink-0 w-12 h-12 rounded-full bg-white/5 flex items-center justify-center"
+            >
+              <i
+                data-lucide="mouse-pointer-2"
+                class="w-6 h-6 text-brand-teal"
+              ></i>
+            </div>
+            <div>
+              <h4 class="text-xl font-semibold mb-2">Quick View Switcher</h4>
+              <p class="text-gray-500">
+                Jump between logging, reporting, and settings in a single click.
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div
+              class="flex-shrink-0 w-12 h-12 rounded-full bg-white/5 flex items-center justify-center"
+            >
+              <i data-lucide="layout" class="w-6 h-6 text-brand-purple"></i>
+            </div>
+            <div>
+              <h4 class="text-xl font-semibold mb-2">Intuitive Navigation</h4>
+              <p class="text-gray-500">
+                A streamlined interface designed for parents who need to get
+                things done quickly and accurately.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="reveal relative lg:h-[600px] flex items-center justify-center"
+      >
+        <!-- Placeholder for Sidebar Animation Video -->
+        <div class="relative w-full">
+          <img
+            src="{{ '/assets/images/index/sidebar-workspace.png' | relative_url }}"
+            alt="Sidebar workspace view"
+            class="w-full aspect-video object-cover rounded-2xl border border-white/10 shadow-2xl"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-tr from-brand-teal/10 to-transparent"
+          ></div>
+          <i data-lucide="play-circle" class="w-16 h-16 text-white/20"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 2: Smart Documentation (Cinematic Reveal) -->
+<section class="py-32 bg-black relative">
+  <div class="max-w-5xl mx-auto px-4 text-center reveal">
+    <h2
+      class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-purple mb-4"
+    >
+      Smart Documentation
+    </h2>
+    <h3 class="text-4xl md:text-6xl font-bold mb-8">
+      Log the moments that matter.
+    </h3>
+    <p class="text-xl text-gray-400 mb-16 max-w-3xl mx-auto">
+      Documentation is only useful if it’s consistent. We’ve built a
+      Category-Driven Logging system.
+    </p>
+
+    <!-- Visual: Category-Driven Logging -->
+    <div
+      class="relative max-w-4xl mx-auto h-[500px] rounded-t-xl bg-gray-900 border-x border-t border-white/10 overflow-hidden shadow-[0_-20px_50px_-10px_rgba(124,58,237,0.3)]"
+    >
+      <div class="w-full h-full flex items-center justify-center">
+        <div class="text-center">
+          <i
+            data-lucide="file-text"
+            class="w-24 h-24 text-brand-purple/20 mb-6"
+          ></i>
+          <p class="text-gray-500 text-lg">Category-Driven Logging Interface</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-12 mt-20 text-left stagger-reveal">
+      <div class="reveal">
+        <h4 class="font-bold text-white mb-3">Tailored Fields</h4>
+        <p class="text-gray-500 text-sm">
+          Specialized forms for Communication, Financial Records, Health Events,
+          and Significant Violations.
+        </p>
+      </div>
+      <div class="reveal">
+        <h4 class="font-bold text-white mb-3">Multi-Child Support</h4>
+        <p class="text-gray-500 text-sm">
+          Log events for one child or the whole family simultaneously with smart
+          grouping.
+        </p>
+      </div>
+      <div class="reveal">
+        <h4 class="font-bold text-white mb-3">Safety Confirmations</h4>
+        <p class="text-gray-500 text-sm">
+          Built-in protections prevent you from accidentally losing your work if
+          you navigate away mid-entry.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 3: Professional Reporting (Cinematic Reveal) -->
+<section class="py-32 bg-black relative">
+  <div class="max-w-5xl mx-auto px-4 text-center reveal">
+    <h2
+      class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-teal mb-4"
+    >
+      Professional Reporting
+    </h2>
+    <h3 class="text-4xl md:text-6xl font-bold mb-8">
+      Court-Ready Reports in seconds.
+    </h3>
+    <p class="text-xl text-gray-400 mb-16 max-w-3xl mx-auto">
+      When it’s time for mediation or a hearing, you don’t need a
+      spreadsheet—you need a professional document.
+    </p>
+
+    <!-- Video: PDF Generation -->
+    <div
+      class="relative max-w-4xl mx-auto h-[500px] rounded-t-xl bg-gray-900 border-x border-t border-white/10 overflow-hidden shadow-[0_-20px_50px_-10px_rgba(42,157,143,0.3)]"
+    >
+      <video
+        id="report-video"
+        autoplay
+        muted
+        controls
+        loop
+        playsinline
+        preload="auto"
+        class="w-full h-full object-cover"
+      >
+        <source
+          id="report-video-source"
+          src="{{ '/assets/video/index/generate-report.mp4' | relative_url }}"
+          data-fallback-src="assets/video/index/generate-report.mp4"
+          type="video/mp4"
+        />
+      </video>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const reportVideo = document.getElementById("report-video");
+        const reportVideoSource = document.getElementById(
+          "report-video-source",
+        );
+        if (!reportVideo || !reportVideoSource) {
+          return;
+        }
+
+        const fallbackSrc = reportVideoSource.getAttribute("data-fallback-src");
+        if (!fallbackSrc) {
+          return;
+        }
+
+        const applyFallbackSource = () => {
+          if (reportVideoSource.getAttribute("src") === fallbackSrc) {
+            return;
+          }
+
+          reportVideoSource.setAttribute("src", fallbackSrc);
+          reportVideo.load();
+          reportVideo.play().catch(() => {
+            // Autoplay may be blocked depending on browser policy.
+          });
+        };
+
+        reportVideo.addEventListener("error", applyFallbackSource, {
+          once: true,
+        });
+
+        const siteBaseUrl = "{{ site.baseurl }}";
+        const currentPath = window.location.pathname;
+        const isBaseUrlPath =
+          !siteBaseUrl ||
+          currentPath === siteBaseUrl ||
+          currentPath.startsWith(`${siteBaseUrl}/`);
+
+        if (!isBaseUrlPath) {
+          applyFallbackSource();
+        }
+      });
+    </script>
+
+    <div class="grid md:grid-cols-3 gap-12 mt-20 text-left stagger-reveal">
+      <div class="reveal">
+        <h4 class="font-bold text-white mb-3">Precision Scoping</h4>
+        <p class="text-gray-500 text-sm">
+          Choose specific date ranges, children, or categories for exactly the
+          report your lawyer needs.
+        </p>
+      </div>
+      <div class="reveal">
+        <h4 class="font-bold text-white mb-3">Audit Logs</h4>
+        <p class="text-gray-500 text-sm">
+          Generate a full history of your entries to ensure 100% transparency
+          and credibility in court.
+        </p>
+      </div>
+      <div class="reveal">
+        <h4 class="font-bold text-white mb-3">Instant Downloads</h4>
+        <p class="text-gray-500 text-sm">
+          Once generated, your files are ready to download and email
+          immediately.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-32 bg-black border-t border-white/5">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="reveal text-center mb-20">
+      <h2
+        class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-teal mb-4"
+      >
+        The Documentation Gap
+      </h2>
+      <h3 class="text-4xl md:text-5xl font-bold mb-8">
+        Why "Templates" Aren't Enough
+      </h3>
+      <p class="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+        Most parents start with a basic spreadsheet, only to find that manual
+        formulas and messy cell-entry can actually hurt their case in court.
+      </p>
+    </div>
+
+    <div
+      class="reveal glass-card rounded-3xl overflow-hidden border border-white/10"
+    >
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-white/10 bg-white/5">
+              <th
+                class="p-6 text-sm font-bold uppercase tracking-wider text-gray-400"
+              >
+                Feature
+              </th>
+              <th
+                class="p-6 text-sm font-bold uppercase tracking-wider text-gray-400"
+              >
+                Manual Printables
+              </th>
+              <th
+                class="p-6 text-sm font-bold uppercase tracking-wider text-gray-400"
+              >
+                Standard Spreadsheet Templates
+              </th>
+              <th
+                class="p-6 text-sm font-bold uppercase tracking-wider text-brand-teal"
+              >
+                Verascribe Guardian App
+              </th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/5">
+            <tr>
+              <td class="p-6 font-semibold text-white">Data Entry</td>
+              <td class="p-6 text-gray-500 text-sm">
+                Handwritten; slow and tedious.
+              </td>
+              <td class="p-6 text-gray-500 text-sm">
+                Manual cell typing; easy to overwrite data by mistake.
+              </td>
+              <td class="p-6 text-gray-300 text-sm">
+                Structured sidebar forms; log events in seconds with guided
+                fields.
+              </td>
+            </tr>
+            <tr>
+              <td class="p-6 font-semibold text-white">Automation</td>
+              <td class="p-6 text-gray-500 text-sm">
+                None; you are the calculator.
+              </td>
+              <td class="p-6 text-gray-500 text-sm">
+                Basic formulas; prone to breaking or "Reference Errors".
+              </td>
+              <td class="p-6 text-gray-300 text-sm">
+                Automated, complex logic for overnights and financial splits.
+              </td>
+            </tr>
+            <tr>
+              <td class="p-6 font-semibold text-white">Court Reports</td>
+              <td class="p-6 text-gray-500 text-sm">
+                Photocopied pages and messy notes.
+              </td>
+              <td class="p-6 text-gray-500 text-sm">
+                "Print to PDF" often results in messy, unformatted grids.
+              </td>
+              <td class="p-6 text-gray-300 text-sm">
+                One-click, professionally formatted PDF Summary and Audit
+                Reports.
+              </td>
+            </tr>
+            <tr>
+              <td class="p-6 font-semibold text-white">Data Integrity</td>
+              <td class="p-6 text-gray-500 text-sm">
+                High risk of physical loss or damage.
+              </td>
+              <td class="p-6 text-gray-500 text-sm">
+                No validation; a single typo can ruin your entire calculation.
+              </td>
+              <td class="p-6 text-gray-300 text-sm">
+                Hardened data validation ensures every entry is accurate and
+                reliable.
+              </td>
+            </tr>
+            <tr>
+              <td class="p-6 font-semibold text-white">Evidence Proof</td>
+              <td class="p-6 text-gray-500 text-sm">
+                Unverifiable and easy to dispute.
+              </td>
+              <td class="p-6 text-gray-500 text-sm">
+                Entries can be changed or deleted without a trace.
+              </td>
+              <td class="p-6 text-gray-300 text-sm">
+                Immutable Audit Logs provide a timestamped history of every
+                entry.
+              </td>
+            </tr>
+            <tr>
+              <td class="p-6 font-semibold text-white">User Experience</td>
+              <td class="p-6 text-gray-500 text-sm">
+                Visual clutter; hard to organize.
+              </td>
+              <td class="p-6 text-gray-500 text-sm">
+                Requires technical knowledge of Excel or Sheets to manage.
+              </td>
+              <td class="p-6 text-gray-300 text-sm">
+                Single sidebar workspace designed for non-technical users in
+                high-stress situations.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 4: Privacy & Ownership (The Shield) -->
+<section class="py-32 bg-charcoal border-y border-white/5">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="grid lg:grid-cols-2 gap-20 items-center">
+      <div class="reveal relative flex justify-center">
+        <div class="w-64 h-64 md:w-80 md:h-80 relative">
+          <div
+            class="absolute inset-0 bg-brand-teal/20 blur-[100px] rounded-full"
+          ></div>
+          <div
+            class="relative z-10 w-full h-full glass-card rounded-full flex items-center justify-center border-white/10"
+          >
+            <i data-lucide="shield" class="w-32 h-32 text-brand-teal"></i>
+            <div
+              class="absolute -right-4 top-1/4 w-16 h-16 glass-card rounded-xl flex items-center justify-center"
+            >
+              <i data-lucide="database" class="w-8 h-8 text-white"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <h2
+          class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-teal mb-4"
+        >
+          Privacy & Ownership
+        </h2>
+        <h3 class="text-4xl md:text-5xl font-bold mb-8 leading-tight">
+          Your data. Your Drive.<br />Your control.
+        </h3>
+        <p class="text-lg text-gray-400 mb-8 leading-relaxed">
+          Most apps store your sensitive family data on their own servers. We
+          don't. Your workbook lives entirely in your own Google Drive.
+        </p>
+        <ul class="space-y-6">
+          <li class="flex items-start gap-4">
+            <i data-lucide="eye-off" class="w-6 h-6 text-brand-teal mt-1"></i>
+            <div>
+              <h5 class="font-semibold text-white">No Data Mining</h5>
+              <p class="text-gray-500 text-sm">
+                We never see your logs, your files, or your personal details.
+              </p>
+            </div>
+          </li>
+          <li class="flex items-start gap-4">
+            <i data-lucide="unlock" class="w-6 h-6 text-brand-purple mt-1"></i>
+            <div>
+              <h5 class="font-semibold text-white">You Own It Forever</h5>
+              <p class="text-gray-500 text-sm">
+                This isn't a subscription service you can be locked out of. You
+                own the file forever.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 5: The Dashboard (Visual Insights) -->
+<section class="py-32 bg-black overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="reveal text-center mb-20">
+      <h2
+        class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-purple mb-4"
+      >
+        The Dashboard
+      </h2>
+      <h3 class="text-4xl md:text-6xl font-bold mb-8">
+        Data-driven parenting.
+      </h3>
+      <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+        The in-sheet Dashboard automatically turns your daily logs into visual
+        insights, helping you stay ahead of your schedule.
+      </p>
+    </div>
+
+    <div class="reveal relative group">
+      <!-- Placeholder for Workbook Dashboard Screenshot -->
+      <div
+        class="aspect-video bg-gray-900 rounded-3xl border border-white/10 overflow-hidden shadow-2xl transition-transform group-hover:scale-[1.01] duration-700"
+      >
+        <div
+          class="absolute inset-0 bg-gradient-to-tr from-brand-purple/10 to-transparent"
+        ></div>
+        <div class="w-full h-full flex items-center justify-center">
+          <i data-lucide="layout-template" class="w-20 h-20 text-white/10"></i>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 mt-12">
+        <div class="glass-card p-8 rounded-2xl">
+          <h4 class="text-xl font-bold mb-3 text-white">
+            Custody Schedule Builder
+          </h4>
+          <p class="text-gray-500">
+            Generate recurring schedules (2-2-3, 50/50, etc.) or a custom plan
+            in seconds.
+          </p>
+        </div>
+        <div class="glass-card p-8 rounded-2xl">
+          <h4 class="text-xl font-bold mb-3 text-white">Expense Tracking</h4>
+          <p class="text-gray-500">
+            Automatically categorize medical, education, and travel expenses for
+            easy reimbursement.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA: Apple-style Conversion -->
+<section class="py-48 bg-white text-black relative overflow-hidden">
+  <div
+    class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-brand-teal/5 blur-[120px] rounded-full"
+  ></div>
+
+  <div class="max-w-4xl mx-auto px-4 text-center reveal relative z-10">
+    <div
+      class="inline-block px-4 py-1 rounded-full border border-black/10 text-sm font-bold uppercase tracking-widest mb-8"
+    >
+      Limited Access
+    </div>
+    <h3 class="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
+      Start Organizing Your Case Today.
+    </h3>
+    <div class="space-y-2 mb-12">
+      <p class="text-2xl font-medium">Try it Free for 7 Days.</p>
+      <p class="text-gray-500">No Credit Card Required. No Commitment.</p>
+    </div>
+    <button
+      class="cursor-pointer bg-black text-white hover:bg-gray-800 px-12 py-5 rounded-full font-bold text-xl shadow-2xl transition-all transform hover:scale-105 active:scale-95"
+    >
+      Get Started Now
+    </button>
+  </div>
+</section>

@@ -38,7 +38,7 @@ description: "A step-by-step guide to exporting and importing your workbook data
 <img src="{{ '/assets/images/guides/upgrade-guide/export-data.png' | relative_url }}" alt="Export Data" class="w-full rounded-lg border border-white/10 shadow-lg">
 
 1. Open your existing workbook.
-2. In the My Parent Record sidebar menu, select "Export Data".
+2. In the Verascribe Guardian sidebar menu, select "Export Data".
 3. Click the "Export Now" button.
 4. Choose a location to save your workbook data to your computer.
 5. Click "Save".
@@ -57,7 +57,7 @@ description: "A step-by-step guide to exporting and importing your workbook data
 <img src="{{ '/assets/images/guides/upgrade-guide/import-data.png' | relative_url }}" alt="Import Data" class="w-full rounded-lg border border-white/10 shadow-lg">
 
 1. Go to your copy of the new workbook.
-2. In the My Parent Record sidebar menu, select "Import Data".
+2. In the Verascribe Guardian sidebar menu, select "Import Data".
 3. Click the "Validate Import" button and select the file you exported in Step 1.
 4. If the import is valid, click "Import File".
 5. The import will begin. This may take a few minutes.

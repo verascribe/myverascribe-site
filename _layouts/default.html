@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -25,20 +25,204 @@
       };
     </script>
     <style>
+      :root {
+        --apple-black: #000000;
+        --apple-white: #f5f5f7;
+        --apple-gray: #86868b;
+        --charcoal: #131314;
+      }
       .fade-in {
-        animation: fadeIn 0.5s ease-in;
+        animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+        will-change: transform, opacity;
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
       }
       @keyframes fadeIn {
         from {
           opacity: 0;
-          transform: translateY(10px);
+          transform: translateY(20px);
         }
         to {
           opacity: 1;
           transform: translateY(0);
         }
       }
+      .stagger-reveal > * {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      .stagger-reveal.active > * {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .stagger-reveal.active > *:nth-child(1) {
+        transition-delay: 0.1s;
+      }
+      .stagger-reveal.active > *:nth-child(2) {
+        transition-delay: 0.2s;
+      }
+      .stagger-reveal.active > *:nth-child(3) {
+        transition-delay: 0.3s;
+      }
+      .stagger-reveal.active > *:nth-child(4) {
+        transition-delay: 0.4s;
+      }
+
+      .scrolly-video-container {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        width: 100%;
+        overflow: hidden;
+      }
+      .gradient-text {
+        background: linear-gradient(
+          180deg,
+          #fff 0%,
+          rgba(255, 255, 255, 0.7) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        padding-bottom: 0.1em; /* Prevent descenders like 'g' from being cut off */
+      }
+      .glass-card {
+        background: rgba(28, 28, 30, 0.7);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* Hero Scroll Effect Styles */
+      #hero-section {
+        --hero-overlap: 64px;
+        --nav-height: 64px;
+        margin-top: calc(var(--hero-overlap) * -1);
+      }
+      .hero-sticky-container {
+        position: sticky;
+        top: calc(var(--nav-height) - var(--hero-overlap));
+        height: calc(100vh - (var(--nav-height) - var(--hero-overlap)));
+        width: 100%;
+        overflow: hidden;
+        background: black;
+      }
+      .hero-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+        will-change: filter;
+      }
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(19, 19, 20, 0.85); /* Charcoal-esque */
+        backdrop-filter: blur(0px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: calc(2rem + var(--nav-height)) 2rem 2rem;
+        z-index: 20;
+        will-change: transform, backdrop-filter;
+        transform: translateY(100%);
+        /* Removed transition to avoid sluggishness/input lag on scroll */
+      }
     </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+            }
+          });
+        }, observerOptions);
+
+        document
+          .querySelectorAll(".reveal")
+          .forEach((el) => observer.observe(el));
+
+        // Optimized Hero Scroll Animation
+        const heroSection = document.getElementById("hero-section");
+        const heroOverlay = document.getElementById("hero-overlay");
+        const heroImage = document.getElementById("hero-image");
+        const heroCaption = document.getElementById("hero-caption");
+
+        if (heroSection && heroOverlay && heroImage) {
+          const navEl = document.querySelector("nav");
+          const navHeight = navEl ? navEl.offsetHeight : 64;
+          heroSection.style.setProperty("--nav-height", `${navHeight}px`);
+
+          const heroUrl = heroImage.getAttribute("data-hero-url");
+          if (heroUrl) {
+            heroImage.style.backgroundImage = `url('${heroUrl}')`;
+          }
+          let ticking = false;
+
+          function updateHero() {
+            const sectionTop = heroSection.offsetTop;
+            const sectionHeight = heroSection.offsetHeight;
+            const viewHeight = window.innerHeight;
+            const scrollRange = Math.max(sectionHeight - viewHeight, 1);
+            const scrollY = window.scrollY - sectionTop;
+            const scrollPercent = Math.min(
+              Math.max(scrollY / scrollRange, 0),
+              1,
+            );
+
+            // Overlay movement (linear, no snap)
+            const overlayProgress = Math.min(
+              Math.max(scrollPercent / 0.95, 0),
+              1,
+            );
+            heroOverlay.style.transform = `translateY(${(1 - overlayProgress) * 100}%)`;
+
+            if (heroCaption) {
+              const captionOpacity = Math.min(
+                Math.max(1 - overlayProgress * 1.15, 0),
+                1,
+              );
+              heroCaption.style.opacity = String(captionOpacity);
+            }
+
+            // Soft blur effect
+            const blurAmount = overlayProgress * 12;
+            heroOverlay.style.backdropFilter = `blur(${blurAmount}px)`;
+            heroOverlay.style.opacity = overlayProgress;
+
+            ticking = false;
+          }
+
+          window.addEventListener("scroll", () => {
+            if (!ticking) {
+              window.requestAnimationFrame(updateHero);
+              ticking = true;
+            }
+          });
+
+          // Initial call
+          updateHero();
+        }
+      });
+    </script>
   </head>
   <body class="bg-charcoal text-off-white font-sans flex flex-col min-h-screen">
     <!-- Navigation -->
@@ -57,19 +241,19 @@
               <!-- <i data-lucide="heart" class="h-6 w-6 text-off-white"></i> -->
             </div>
             <span class="font-bold text-xl text-off-white tracking-tight"
-              >My Parent <span class="text-brand-teal">Record</span></span
+              >Verascribe <span class="text-brand-teal">Guardian</span></span
             >
           </a>
 
           <div class="hidden md:flex space-x-8">
-            <!-- <a
+            <a
               href="{{ '/' | relative_url }}"
               class="{% if page.url == '/' %}text-brand-teal font-semibold{% else %}text-off-white hover:text-brand-teal{% endif %} transition-colors"
               >Home</a
-            > -->
+            >
             <a
-              href="{{ '/' | relative_url }}"
-              class="{% if page.url contains '/' or page.layout == 'post' %}text-brand-teal font-semibold{% else %}text-off-white hover:text-brand-teal{% endif %} transition-colors"
+              href="{{ '/updates/' | relative_url }}"
+              class="{% if page.url == '/updates/' or page.layout == 'post' %}text-brand-teal font-semibold{% else %}text-off-white hover:text-brand-teal{% endif %} transition-colors"
               >Updates</a
             >
             <a
@@ -103,7 +287,7 @@
             <div class="flex items-center mb-4">
               <!-- <i data-lucide="heart" class="h-5 w-5 text-brand-teal mr-2"></i> -->
               <span class="font-bold text-xl text-off-white"
-                >MyParentRecord</span
+                >Verascribe Guardian</span
               >
             </div>
             <p class="text-sm text-gray-400">
@@ -128,7 +312,7 @@
         <div
           class="mt-12 pt-8 border-t border-gray-700 flex justify-between items-center"
         >
-          <p class="text-sm text-gray-400">© 2026 MyParentRecord.</p>
+          <p class="text-sm text-gray-400">© 2026 Verascribe Guardian.</p>
         </div>
       </div>
     </footer>
